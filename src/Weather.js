@@ -4,11 +4,18 @@ import "./Weather.css";
 
 export default function Weather(){
    const[ready, setReady]=useState(false);
-   const[temperature, setTemperature]=useState(null);
+   const[weatherData, setWeatherData]=useState({});
    
    function handleResponse(response){
       console.log(response.data);
-      setTemperature(response.data.main.temp);
+      setWeatherData({
+         temperature:response.data.main.temp,
+          wind:response.data.wind.speed,
+          description:response.data.main.weather[0].description,
+          iconUrl:'https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png',
+          humidity:response.data.main.humidity,
+          city:response.data.name
+   });
       setReady(true);
    }
    if(ready){
@@ -24,27 +31,27 @@ export default function Weather(){
             </div>
         </div>
         </form>
-        <h1>Nairobi</h1>
+        <h1>{weatherData.city}</h1>
         <ul>
          <li>Wednesday 13:54</li> 
-         <li>Sunny</li>  
+         <li>{weatherData.description}</li>  
         </ul>
         <div className="row mt-3">
          <div className="col-6">
             <div className="clearfix">
-            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="Sunny"></img>
+            <img src={weatherData.iconUrl}
+            alt="mostly cloudy"
+            className="float-left" />
             <div className="float-left">
-            <span className="temperature">${temperature}</span>
+            <span className="temperature">{Math.round(weatherData.temperature)}</span>
             <span className="unit">°C</span>
             </div>
             </div>
             </div>
             <div className="col-6">
                <ul>
-                <li>Precipitation:11%</li>
-                <li>Humidity:53%</li>
-                <li>Wind:18km/h</li>
+                <li>{weatherData.humidity}%</li>
+                <li>{weatherData.wind}km/h</li>
                 </ul> 
                 </div>   
         </div>
