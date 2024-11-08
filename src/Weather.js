@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 
+
 export default function Weather(props){
    const[weatherData, setWeatherData]=useState({ready:false});
    const[city, setCity]=useState(props.defaultCity);
@@ -14,7 +15,7 @@ export default function Weather(props){
           wind:response.data.wind.speed,
           date:new Date(response.data.dt*1000),
           description:response.data.main.weather[0].description,
-          iconUrl:"https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+          icon:response.data.weather[0].icon,
           humidity:response.data.main.humidity,
           city:response.data.name,
             });
@@ -30,8 +31,8 @@ export default function Weather(props){
       }
 
    function search(){
-      const apiKey= "1266ad07b66517497b1acf79ea5a6a64";
-      const apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+      const apiKey= "3ob9403f647925649063e2b120atb379";
+      const apiUrl=`https://api.shecodes.io/weather/v1/current?=${props.defaultCity}&appid=${apiKey}&units=metric`;
       axios.get(apiUrl).then(handleResponse)
 
    }   
