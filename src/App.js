@@ -11,8 +11,8 @@ export default function App() {
 
     <footer>
       This project was coded by Jacinta Musau  
-    <a href="https://github.com/jessjat/react-wk5"target="_blank" rel="noopener noreferrer">  is open-sourced on GitHub</a>
-    and <a href="https://endearing-tartufo-f97d02.netlify.app/" target="_blank" rel="noopener noreferer">hosted on Netlify</a> 
+    <a href="https://github.com/jessjat/react-wk5"target="_blank" rel="noopener noreferrer">  is open-sourced on GitHub </a>
+       and <a href="https://endearing-tartufo-f97d02.netlify.app/" target="_blank" rel="noopener noreferrer">hosted on Netlify</a> 
     </footer>
      </div>
     </div>
