@@ -13,7 +13,7 @@ export default function Weather(props){
          ready: true,
          temperature:response.data.temperature.current,
           wind:response.data.wind.speed,
-          date:new Date(response.data.time),
+          date:new Date(response.data.time*1000),
           description:response.data.condition.description,
           icon:response.data.condition.icon,
           humidity:response.data.temperature.humidity,
@@ -32,7 +32,7 @@ export default function Weather(props){
 
    function search(){
       const apiKey= "bd79ao40tde3dec118ca46bc3e6dd55f";
-      const apiUrl=`https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
+      const apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
       console.log(apiUrl)
       axios.get(apiUrl).then(handleResponse)
 
