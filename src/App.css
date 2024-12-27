@@ -1,12 +1,16 @@
 .App{
     max-width: 600px;
     margin: 30px auto;
-    background-color: bisque;
-    
+    /*background-color: bisque;*/
+    background-image:url('./images/clouds-4215608_1280.jpg') ;
 }
 .App footer{
-    font-size: 12px;
-    margin:5px;
+    font-size: 13px;
+    margin:2px;
+    text-align: center;
+    text-decoration:solid;
+
+    
 }
 
     
